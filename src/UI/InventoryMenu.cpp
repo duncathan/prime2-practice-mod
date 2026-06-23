@@ -219,6 +219,9 @@ namespace GUI {
   void refillItems(CPlayerState *playerState) {
     for (int i = 0; i < int(CPlayerState::EItemType::Max); i++) {
       auto itemType = static_cast<CPlayerState::EItemType>(i);
+      if (itemType == CPlayerState::EItemType::CannonBall) {
+        continue; // otherwise the refill button always gives the player cannon ball
+      }
       u32 maxValue = CPlayerState::GetPowerUpMaxValue(itemType);
       playerState->ResetAndIncrPickUp(itemType, maxValue);
     }
