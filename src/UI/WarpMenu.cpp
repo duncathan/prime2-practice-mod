@@ -1,5 +1,6 @@
 #include <imgui.h>
 #include "WarpMenu.h"
+#include "ImHelpers.hpp"
 
 // clang-format off
 const WarpArea AREAS_TEMPLE_GROUNDS[] = {
@@ -402,10 +403,10 @@ const WarpWorld WARP_WORLDS[] = {
 
 namespace GUI {
   void drawWarpMenu() {
-    if (ImGui::TreeNode("Warps")) {
+    if (ImHelpers::TreeNodeNavLeft("Warps")) {
       // ImGui::Text("You can also warp by pressing 'x' on the map");
       for (auto world : WARP_WORLDS) {
-        if (ImGui::TreeNode(world.name)) {
+        if (ImHelpers::TreeNodeNavLeft(world.name)) {
           for (int i = 0; i < world.areaCount; i++) {
             ImGuiTreeNodeFlags node_flags =  ImGuiTreeNodeFlags_OpenOnArrow
                 | ImGuiTreeNodeFlags_OpenOnDoubleClick

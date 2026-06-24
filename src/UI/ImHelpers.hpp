@@ -14,4 +14,6 @@
 
 namespace ImHelpers {
   void ClampCurrentWindowToScreen();
+  bool TreeNodeNavLeft(const char *label);
+  bool TreeNodeNavLeft(const char *str_id, const char *fmt, ...);
 }

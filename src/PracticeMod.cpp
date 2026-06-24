@@ -6,6 +6,7 @@
 #include "UI/QR.hpp"
 #include "UI/SettingsMenu.hpp"
 #include "UI/WarpMenu.h"
+#include "UI/ImHelpers.hpp"
 #include "imgui.h"
 #include "os.h"
 #include "prime/CGameState.hpp"
@@ -129,7 +130,7 @@ void PracticeMod::renderMenu() {
     GUI::drawInventoryMenu();
     GUI::drawSettingsMenu();
     GUI::drawWarpMenu();
-    if (ImGui::TreeNode("v%s", MOD_VERSION)) {
+    if (ImHelpers::TreeNodeNavLeft("Version", "v%s", MOD_VERSION)) {
       ImGui::Text("Links (QR codes):");
       if (ImGui::TreeNode("Releases")) {
         GUI::drawQRCode("https://github.com/MetroidPrimeModding/prime2-practice-mod/releases", 3.0f);

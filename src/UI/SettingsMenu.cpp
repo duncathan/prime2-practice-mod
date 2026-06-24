@@ -13,7 +13,7 @@ namespace GUI {
   void drawHex32Editor(const char *title, s32 *value);
 
   void drawSettingsMenu() {
-    if (ImGui::TreeNode("Settings")) {
+    if (ImHelpers::TreeNodeNavLeft("Settings")) {
       if (ImGui::TreeNode("On-screen display")) {
         BITFIELD_CHECKBOX("Show", SETTINGS.OSD_show);
         BITFIELD_CHECKBOX("Pos", SETTINGS.OSD_showPos);
