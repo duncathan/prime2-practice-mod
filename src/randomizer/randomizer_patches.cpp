@@ -59,7 +59,7 @@ DECLARE_FUNCTION_REPLACEMENT(CMappableObject_Draw) {
         iconTexture->LoadMipLevel(0, 1);
         CGraphics::SetTevOp(GxTevOp_ADD, &g_tevPass_80416c2c);
         CGraphics::StreamBegin(ERglPrimitive_TRIANGLESTRIP);
-        CGraphics::StreamColor(0xFFFFFFFF);
+        CGraphics::StreamColor(0xFFFFFF00 | int(255.0f * alpha));
         CGraphics::StreamTexcoord(0.0, 1.0);
         CGraphics::StreamVertex(-2.6, 0.0, 2.6);
         CGraphics::StreamTexcoord(0.0, 0.0);
