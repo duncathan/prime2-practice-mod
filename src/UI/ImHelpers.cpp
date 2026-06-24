@@ -33,5 +33,21 @@ namespace ImHelpers {
       ImGui::SetWindowPos(window->Name, windowPos);
     }
   }
+
+  static const ImGuiTreeNodeFlags NavLeftFlags = ImGuiTreeNodeFlags_OpenOnArrow
+            | ImGuiTreeNodeFlags_OpenOnDoubleClick
+            | ImGuiTreeNodeFlags_NavLeftJumpsBackHere;
+
+  bool TreeNodeNavLeft(const char *label) {
+    return ImGui::TreeNodeEx(label, NavLeftFlags);
+  }
+
+  bool TreeNodeNavLeft(const char *str_id, const char *fmt, ...) {
+    va_list args;
+    va_start(args, fmt);
+    bool is_open = ImGui::TreeNodeExV(str_id, NavLeftFlags, fmt, args);
+    va_end(args);
+    return is_open;
+  }
 }
 
